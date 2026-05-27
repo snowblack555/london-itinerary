@@ -12,7 +12,6 @@
             --success: #059669;
             --success-light: #d1fae5;
             --warning: #b45309;
-            --warning-light: #fef3c7;
             --bg-color: #f8fafc;
             --card-bg: #ffffff;
             --text-main: #334155;
@@ -42,7 +41,7 @@
             margin: 0 auto;
         }
 
-        /* Sticky Navigation (Option D) */
+        /* Sticky Navigation */
         .tab-nav {
             position: sticky;
             top: 8px;
@@ -102,7 +101,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Completed State (Option B) */
         .card.completed {
             opacity: 0.5;
             filter: grayscale(80%);
@@ -148,7 +146,6 @@
         .type-badge.paid { background: #e0f2fe; color: #0369a1; }
         .type-badge.free { background: var(--success-light); color: #047857; }
 
-        /* Title and Copy Button (Option E) */
         .title-wrapper {
             display: flex;
             justify-content: space-between;
@@ -340,11 +337,38 @@
             border: 1px solid #059669;
         }
 
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #ffffff;
+            padding: 20px 16px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+            letter-spacing: -0.025em;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
     </style>
 </head>
 <body>
 
 <div class="container">
+
+    <header>
+        <h1>London Travel</h1>
+        <p>3 Adults â€¢ Live TfL Fare-Capping & Local Dining</p>
+    </header>
 
     <!-- Sticky Day Navigation Tabs -->
     <div class="tab-nav">
@@ -366,18 +390,18 @@
             </div>
             <div class="title-wrapper">
                 <h2>Orchard Hotel Check-In</h2>
-                <button class="copy-btn" onclick="copyPostcode('W2 1UH', this)">📋 W2 1UH</button>
+                <button class="copy-btn" onclick="copyPostcode('W2 1UH', this)">ðŸ“‹ W2 1UH</button>
             </div>
-            <div class="route-desc">From Victoria Station: Board Bus 36 direct to Paddington Station (Stop H)</div>
-            <p class="desc">Arrive at 86 Sussex Gardens. Drop your suitcases inside the Triple Room. Breakfast is completely covered by the hotel for all subsequent mornings.</p>
+            <div class="route-desc">ðŸš‡ From Transit: Arrive at Paddington Station, 4 min walk to hotel</div>
+            <p class="desc">Drop your suitcases inside the Triple Room. Breakfast is completely covered by the hotel for all subsequent mornings.</p>
             <div class="fare-row">
-                <span>Transit Cost (3x Single Bus Fares):</span>
-                <span class="fare-val">£5.25</span>
+                <span>Transit Cost:</span>
+                <span class="fare-val capped">Â£0.00 (Walk)</span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=86+Sussex+Gardens+London+W2+1UH" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=London+Victoria+Station&destination=86+Sussex+Gardens+London+W2+1UH&travelmode=transit" target="_blank" class="map-btn prev">⬅️ From Victoria</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=86+Sussex+Gardens+London+W2+1UH&destination=Natural+History+Museum+London&travelmode=transit" target="_blank" class="map-btn next">➡️ To Museum</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=86+Sussex+Gardens+London+W2+1UH" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Padding+Station+London&destination=86+Sussex+Gardens+London+W2+1UH&travelmode=walking" target="_blank" class="map-btn prev">â¬…ï¸ From Station</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=86+Sussex+Gardens+London+W2+1UH&destination=Natural+History+Museum+London&travelmode=transit" target="_blank" class="map-btn next">âž¡ï¸ To Museum</a>
             </div>
         </div>
 
@@ -391,18 +415,18 @@
             </div>
             <div class="title-wrapper">
                 <h2>Natural History Museum</h2>
-                <button class="copy-btn" onclick="copyPostcode('SW7 5BD', this)">📋 SW7 5BD</button>
+                <button class="copy-btn" onclick="copyPostcode('SW7 5BD', this)">ðŸ“‹ SW7 5BD</button>
             </div>
-            <div class="route-desc">From Hotel: Take District Line from Paddington Station to South Kensington Station</div>
+            <div class="route-desc">ðŸš‡ Take District or Circle Line from Paddington to South Kensington Station</div>
             <p class="desc">Explore Hintze Hall and the core fossil galleries. The late afternoon window offers a dramatic reduction in crowds before the 17:50 building closure.</p>
             <div class="fare-row">
                 <span>Transit Cost (3x Single Tube Fares):</span>
-                <span class="fare-val">£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: £13.65)</span></span>
+                <span class="fare-val">Â£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: Â£8.40)</span></span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=Natural+History+Museum+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=86+Sussex+Gardens+London+W2+1UH&destination=Natural+History+Museum+London&travelmode=transit" target="_blank" class="map-btn prev">⬅️ From Hotel</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Natural+History+Museum+London&destination=Covent+Garden+London&travelmode=transit" target="_blank" class="map-btn next">➡️ To Covent Gdn</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Natural+History+Museum+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=86+Sussex+Gardens+London+W2+1UH&destination=Natural+History+Museum+London&travelmode=transit" target="_blank" class="map-btn prev">â¬…ï¸ From Hotel</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Natural+History+Museum+London&destination=Covent+Garden+London&travelmode=transit" target="_blank" class="map-btn next">âž¡ï¸ To Covent Gdn</a>
             </div>
         </div>
 
@@ -416,24 +440,24 @@
             </div>
             <div class="title-wrapper">
                 <h2>Covent Garden</h2>
-                <button class="copy-btn" onclick="copyPostcode('WC2E 8BE', this)">📋 WC2E 8BE</button>
+                <button class="copy-btn" onclick="copyPostcode('WC2E 8BE', this)">ðŸ“‹ WC2E 8BE</button>
             </div>
-            <div class="route-desc">From Museum: Take Piccadilly Line from South Kensington to Covent Garden Station</div>
+            <div class="route-desc">ðŸš‡ Take Piccadilly Line from South Kensington direct to Covent Garden Station</div>
             <p class="desc">Experience the Central Avenue market arches and evening street musicians. Features an exceptional non-hype local dining infrastructure away from primary avenues.</p>
             
             <div class="food-box">
                 <div class="food-title">Local Dining Recommendation</div>
-                <div class="food-desc"><strong>Flat Iron (Henrietta St):</strong> Legendary local steak house with no tourist markup. High-quality steak served with a signature cleaver. Incredibly fair pricing.<br><strong>Est. Cost:</strong> ~£48 - £58 total for 3 adults.</div>
+                <div class="food-desc"><strong>Flat Iron (Henrietta St):</strong> Legendary local steak house with no tourist markup. High-quality steak served with a signature cleaver. Incredibly fair pricing.<br><strong>Est. Cost:</strong> ~Â£48 - Â£58 total for 3 adults.</div>
             </div>
 
             <div class="fare-row">
                 <span>Transit Cost (3x Single Tube Fares):</span>
-                <span class="fare-val">£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: £22.05)</span></span>
+                <span class="fare-val">Â£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: Â£16.80)</span></span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=Covent+Garden+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Natural+History+Museum+London&destination=Covent+Garden+London&travelmode=transit" target="_blank" class="map-btn prev">⬅️ From Museum</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Covent+Garden+London&destination=86+Sussex+Gardens+London+W2+1UH&travelmode=transit" target="_blank" class="map-btn next">➡️ To Hotel</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Covent+Garden+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Natural+History+Museum+London&destination=Covent+Garden+London&travelmode=transit" target="_blank" class="map-btn prev">â¬…ï¸ From Museum</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Covent+Garden+London&destination=86+Sussex+Gardens+London+W2+1UH&travelmode=transit" target="_blank" class="map-btn next">âž¡ï¸ To Hotel</a>
             </div>
         </div>
 
@@ -443,15 +467,15 @@
                     <input type="checkbox" class="custom-checkbox" onchange="toggleCardState(this)">
                     <span class="time-badge" style="background: var(--success);">20:45</span>
                 </div>
-                <span class="type-badge free">Cap Triggered</span>
+                <span class="type-badge free">Daily Cap Target</span>
             </div>
             <div class="title-wrapper">
                 <h2>Return Transit to Hotel</h2>
             </div>
-            <div class="route-desc">Take Piccadilly Line from Covent Garden, change at Piccadilly Circus to Bakerloo Line straight to Paddington</div>
+            <div class="route-desc">ðŸš‡ Take Piccadilly Line from Covent Garden, change at Piccadilly Circus to Bakerloo Line straight to Paddington</div>
             <div class="fare-row">
-                <span>Transit Cost (Capped at £26.70 Max for Zones 1-2):</span>
-                <span class="fare-val capped">£4.65 <span style="color: var(--success); font-weight: bold;">(TfL daily limit reached)</span></span>
+                <span>Transit Cost (3x Single Tube Fares):</span>
+                <span class="fare-val">Â£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: Â£25.20)</span></span>
             </div>
         </div>
 
@@ -470,18 +494,18 @@
             </div>
             <div class="title-wrapper">
                 <h2>Buckingham Palace</h2>
-                <button class="copy-btn" onclick="copyPostcode('SW1A 1AA', this)">📋 SW1A 1AA</button>
+                <button class="copy-btn" onclick="copyPostcode('SW1A 1AA', this)">ðŸ“‹ SW1A 1AA</button>
             </div>
-            <div class="route-desc">From Hotel: Take Bus 148 direct from Lancaster Gate Station (Stop BC) to Green Park Station</div>
+            <div class="route-desc">ðŸš‡ Take Tube (or Bus 148) from Lancaster Gate Station to Green Park Station</div>
             <p class="desc">Position yourself near the royal gates and Victoria Memorial for exterior viewing. Breakfast is already taken at your hotel prior to departure.</p>
             <div class="fare-row">
-                <span>Transit Cost (3x Single Bus Fares):</span>
-                <span class="fare-val">£5.25</span>
+                <span>Transit Cost (3x Single Fares):</span>
+                <span class="fare-val">Â£8.40</span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=Buckingham+Palace+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=86+Sussex+Gardens+London+W2+1UH&destination=Buckingham+Palace+London&travelmode=transit" target="_blank" class="map-btn prev">⬅️ From Hotel</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Buckingham+Palace+London&destination=Westminster+Abbey+London&travelmode=walking" target="_blank" class="map-btn next">➡️ To Abbey</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Buckingham+Palace+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=86+Sussex+Gardens+London+W2+1UH&destination=Buckingham+Palace+London&travelmode=transit" target="_blank" class="map-btn prev">â¬…ï¸ From Hotel</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Buckingham+Palace+London&destination=Westminster+Abbey+London&travelmode=walking" target="_blank" class="map-btn next">âž¡ï¸ To Abbey</a>
             </div>
         </div>
 
@@ -495,18 +519,18 @@
             </div>
             <div class="title-wrapper">
                 <h2>Westminster Abbey & Big Ben</h2>
-                <button class="copy-btn" onclick="copyPostcode('SW1P 3PA', this)">📋 SW1P 3PA</button>
+                <button class="copy-btn" onclick="copyPostcode('SW1P 3PA', this)">ðŸ“‹ SW1P 3PA</button>
             </div>
-            <div class="route-desc">Walk: Flat path via St. James's Park • 15 mins</div>
+            <div class="route-desc">ðŸš¶ Flat walk via St. James's Park â€¢ 15 mins</div>
             <p class="desc">A completely flat, highly aesthetic pedestrian route through the park plaza. Perfect for close-up exterior photography of the Parliament complex and Big Ben.</p>
             <div class="fare-row">
                 <span>Transit Cost:</span>
-                <span class="fare-val capped">£0.00 (Walk)</span>
+                <span class="fare-val capped">Â£0.00 (Walk)</span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=Westminster+Abbey+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Buckingham+Palace+London&destination=Westminster+Abbey+London&travelmode=walking" target="_blank" class="map-btn prev">⬅️ From Palace</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Westminster+Abbey+London&destination=London+Eye+London&travelmode=walking" target="_blank" class="map-btn next">➡️ To London Eye</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Westminster+Abbey+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Buckingham+Palace+London&destination=Westminster+Abbey+London&travelmode=walking" target="_blank" class="map-btn prev">â¬…ï¸ From Palace</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Westminster+Abbey+London&destination=London+Eye+London&travelmode=walking" target="_blank" class="map-btn next">âž¡ï¸ To London Eye</a>
             </div>
         </div>
 
@@ -520,14 +544,14 @@
             </div>
             <div class="title-wrapper">
                 <h2>The London Eye</h2>
-                <button class="copy-btn" onclick="copyPostcode('SE1 7PB', this)">📋 SE1 7PB</button>
+                <button class="copy-btn" onclick="copyPostcode('SE1 7PB', this)">ðŸ“‹ SE1 7PB</button>
             </div>
-            <div class="route-desc">Walk: Cross Westminster Bridge • 10 mins</div>
-            <p class="desc">Proceed directly to the standard entrance queue for your confirmed 12:30 flight rotation (Order ID: 604321100). Fully enclosed observation capsules.</p>
+            <div class="route-desc">ðŸš¶ Walk across Westminster Bridge â€¢ 10 mins</div>
+            <p class="desc">Proceed directly to the standard entrance queue for your confirmed 12:30 flight rotation. Fully enclosed observation capsules.</p>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=London+Eye+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Westminster+Abbey+London&destination=London+Eye+London&travelmode=walking" target="_blank" class="map-btn prev">⬅️ From Abbey</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=London+Eye+London&destination=Hornsey+Street+London&travelmode=transit" target="_blank" class="map-btn next">➡️ To Sister's Flat</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=London+Eye+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Westminster+Abbey+London&destination=London+Eye+London&travelmode=walking" target="_blank" class="map-btn prev">â¬…ï¸ From Abbey</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=London+Eye+London&destination=5-7+Hornsey+Street+London&travelmode=transit" target="_blank" class="map-btn next">âž¡ï¸ To Sister's Flat</a>
             </div>
         </div>
 
@@ -537,22 +561,22 @@
                     <input type="checkbox" class="custom-checkbox" onchange="toggleCardState(this)">
                     <span class="time-badge">13:30 - 15:30</span>
                 </div>
-                <span class="type-badge free">Free Entry</span>
+                <span class="type-badge free">Family Lunch</span>
             </div>
             <div class="title-wrapper">
                 <h2>Sister's Residence (Lunch)</h2>
-                <button class="copy-btn" onclick="copyPostcode('N7 8HS', this)">📋 N7 8HS</button>
+                <button class="copy-btn" onclick="copyPostcode('N7 8HS', this)">ðŸ“‹ N7 8HS</button>
             </div>
-            <div class="route-desc">From Eye: Take Jubilee Line from Waterloo to Green Park, transfer to Piccadilly Line northbound to Caledonian Road Station</div>
+            <div class="route-desc">ðŸš‡ Take Jubilee Line from Waterloo to Green Park, transfer to Piccadilly Line northbound to Caledonian Road Station</div>
             <p class="desc">Arrive at Flat 23, 5-7 Hornsey Street. Enjoy a quiet, private family catch-up and comfortable sit-down lunch. Fully exempt from your out-of-pocket food budget.</p>
             <div class="fare-row">
                 <span>Transit Cost (3x Single Tube Fares):</span>
-                <span class="fare-val">£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: £13.65)</span></span>
+                <span class="fare-val">Â£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: Â£16.80)</span></span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=5-7+Hornsey+Street+London+N7" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=London+Eye+London&destination=5-7+Hornsey+Street+London+N7&travelmode=transit" target="_blank" class="map-btn prev">⬅️ From Eye</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=5-7+Hornsey+Street+London+N7&destination=Millennium+Bridge+London&travelmode=transit" target="_blank" class="map-btn next">➡️ To Millennium Br.</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=5-7+Hornsey+Street+London+N7" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=London+Eye+London&destination=5-7+Hornsey+Street+London+N7&travelmode=transit" target="_blank" class="map-btn prev">â¬…ï¸ From Eye</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=5-7+Hornsey+Street+London+N7&destination=St.+Paul's+Cathedral+London&travelmode=transit" target="_blank" class="map-btn next">âž¡ï¸ To St. Paul's</a>
             </div>
         </div>
 
@@ -565,19 +589,19 @@
                 <span class="type-badge free">Free Entry</span>
             </div>
             <div class="title-wrapper">
-                <h2>Millennium Bridge</h2>
-                <button class="copy-btn" onclick="copyPostcode('SE1 9JE', this)">📋 SE1 9JE</button>
+                <h2>St. Paul's Cathedral</h2>
+                <button class="copy-btn" onclick="copyPostcode('EC4M 8AD', this)">ðŸ“‹ EC4M 8AD</button>
             </div>
-            <div class="route-desc">From Sister's: Take Piccadilly Line from Caledonian Road to King's Cross, transfer to southbound Thameslink rail direct to Blackfriars Station</div>
-            <p class="desc">Walk out onto the architectural steel suspension span. Delivers an iconic, flat framing perspective facing St. Paul's Cathedral without vehicular traffic.</p>
+            <div class="route-desc">ðŸš‡ Take Piccadilly Line from Caledonian Road to Holborn, transfer to Central Line to St. Paul's Station</div>
+            <p class="desc">View the awe-inspiring exterior architecture of Christopher Wren's dome from the public square without paying entry fees.</p>
             <div class="fare-row">
-                <span>Transit Cost (3x Single Rail Fares):</span>
-                <span class="fare-val">£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: £22.05)</span></span>
+                <span>Transit Cost (3x Single Tube Fares):</span>
+                <span class="fare-val">Â£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: Â£25.20)</span></span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Bridge+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=5-7+Hornsey+Street+London+N7&destination=Millennium+Bridge+London&travelmode=transit" target="_blank" class="map-btn prev">⬅️ From Sister's</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Millennium+Bridge+London&destination=Borough+Market+London&travelmode=walking" target="_blank" class="map-btn next">➡️ To Borough Mkt</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=St.+Paul's+Cathedral+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=5-7+Hornsey+Street+London+N7&destination=St.+Paul's+Cathedral+London&travelmode=transit" target="_blank" class="map-btn prev">â¬…ï¸ From Sister's</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=St.+Paul's+Cathedral+London&destination=Millennium+Bridge+London&travelmode=walking" target="_blank" class="map-btn next">âž¡ï¸ To Millennium Br.</a>
             </div>
         </div>
 
@@ -585,30 +609,55 @@
             <div class="time-header">
                 <div class="checkbox-container">
                     <input type="checkbox" class="custom-checkbox" onchange="toggleCardState(this)">
-                    <span class="time-badge">16:45 - 18:00</span>
+                    <span class="time-badge">16:30 - 17:00</span>
+                </div>
+                <span class="type-badge free">Free Entry</span>
+            </div>
+            <div class="title-wrapper">
+                <h2>Millennium Bridge</h2>
+                <button class="copy-btn" onclick="copyPostcode('SE1 9JE', this)">ðŸ“‹ SE1 9JE</button>
+            </div>
+            <div class="route-desc">ðŸš¶ Walk: South down Peter's Hill directly from St. Paul's â€¢ 3 mins</div>
+            <p class="desc">Walk directly away from the Cathedral's South Transept onto the architectural steel suspension span. Delivers an iconic, flat framing perspective facing back toward St. Paul's Cathedral without vehicular traffic.</p>
+            <div class="fare-row">
+                <span>Transit Cost:</span>
+                <span class="fare-val capped">Â£0.00 (Walk)</span>
+            </div>
+            <div class="map-grid">
+                <a href="https://www.google.com/maps/search/?api=1&query=Millennium+Bridge+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=St.+Paul's+Cathedral+London&destination=Millennium+Bridge+London&travelmode=walking" target="_blank" class="map-btn prev">â¬…ï¸ From St. Paul's</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Millennium+Bridge+London&destination=Borough+Market+London&travelmode=walking" target="_blank" class="map-btn next">âž¡ï¸ To Borough Mkt</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="time-header">
+                <div class="checkbox-container">
+                    <input type="checkbox" class="custom-checkbox" onchange="toggleCardState(this)">
+                    <span class="time-badge">17:00 - 18:00</span>
                 </div>
                 <span class="type-badge free">Free Entry</span>
             </div>
             <div class="title-wrapper">
                 <h2>Borough Market & London Bridge</h2>
-                <button class="copy-btn" onclick="copyPostcode('SE1 9AL', this)">📋 SE1 9AL</button>
+                <button class="copy-btn" onclick="copyPostcode('SE1 9AL', this)">ðŸ“‹ SE1 9AL</button>
             </div>
-            <div class="route-desc">Walk: Stroll along Bankside promenade • 10 mins</div>
-            <p class="desc">Stroll along the river to Borough Market. Standard vendor stalls wind down early on Sundays, but the perimeter sit-down options remain dynamic. Walk out onto the adjacent London Bridge.</p>
+            <div class="route-desc">ðŸš¶ Walk: East along Bankside promenade â€¢ 15 mins</div>
+            <p class="desc">Standard vendor stalls wind down early on Sundays, but the perimeter sit-down options remain dynamic. Walk out onto the adjacent London Bridge for Thames views.</p>
             
             <div class="food-box">
                 <div class="food-title">Local Dining Recommendation (Early Dinner)</div>
-                <div class="food-desc"><strong>Padella (Borough High St):</strong> Exceptional fresh, hand-rolled Italian pasta bar right outside the market perimeter. Stripped-back menu, phenomenal taste, avoids luxury tourist premiums.<br><strong>Est. Cost:</strong> ~£35 - £45 total for 3 adults.</div>
+                <div class="food-desc"><strong>Padella (Borough High St):</strong> Exceptional fresh, hand-rolled Italian pasta bar right outside the market perimeter. Stripped-back menu, phenomenal taste, avoids luxury tourist premiums.<br><strong>Est. Cost:</strong> ~Â£35 - Â£45 total for 3 adults.</div>
             </div>
 
             <div class="fare-row">
                 <span>Transit Cost:</span>
-                <span class="fare-val capped">£0.00 (Walk)</span>
+                <span class="fare-val capped">Â£0.00 (Walk)</span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=Borough+Market+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Millennium+Bridge+London&destination=Borough+Market+London&travelmode=walking" target="_blank" class="map-btn prev">⬅️ From Millennium</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Borough+Market+London&destination=Tower+of+London&travelmode=walking" target="_blank" class="map-btn next">➡️ To Tower perimeter</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Borough+Market+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Millennium+Bridge+London&destination=Borough+Market+London&travelmode=walking" target="_blank" class="map-btn prev">â¬…ï¸ From Millennium Br.</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Borough+Market+London&destination=Tower+of+London&travelmode=walking" target="_blank" class="map-btn next">âž¡ï¸ To Tower perimeter</a>
             </div>
         </div>
 
@@ -622,14 +671,18 @@
             </div>
             <div class="title-wrapper">
                 <h2>Tower of London & Tower Bridge</h2>
-                <button class="copy-btn" onclick="copyPostcode('EC3N 4AB', this)">📋 EC3N 4AB</button>
+                <button class="copy-btn" onclick="copyPostcode('EC3N 4AB', this)">ðŸ“‹ EC3N 4AB</button>
             </div>
-            <div class="route-desc">Walk: Cross London Bridge to North Bank • 15 mins</div>
+            <div class="route-desc">ðŸš¶ Walk: Cross London Bridge to North Bank, head East â€¢ 15 mins</div>
             <p class="desc">Trace the stone perimeter and historic moat architecture of the Tower fortress completely free from the outside. Conclude your evening with a flat pedestrian walk directly across the magnificent suspension spans of Tower Bridge.</p>
+            <div class="fare-row">
+                <span>Transit Cost:</span>
+                <span class="fare-val capped">Â£0.00 (Walk)</span>
+            </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=Tower+Bridge+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Borough+Market+London&destination=Tower+of+London&travelmode=walking" target="_blank" class="map-btn prev">⬅️ From Borough</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Tower+Bridge+London&destination=86+Sussex+Gardens+London+W2+1UH&travelmode=transit" target="_blank" class="map-btn next">➡️ To Hotel</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Tower+Bridge+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Borough+Market+London&destination=Tower+of+London&travelmode=walking" target="_blank" class="map-btn prev">â¬…ï¸ From Borough</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Tower+Bridge+London&destination=86+Sussex+Gardens+London+W2+1UH&travelmode=transit" target="_blank" class="map-btn next">âž¡ï¸ To Hotel</a>
             </div>
         </div>
 
@@ -644,10 +697,10 @@
             <div class="title-wrapper">
                 <h2>Return Transit to Hotel</h2>
             </div>
-            <div class="route-desc">Take District Line direct from Tower Hill Station to Paddington Station</div>
+            <div class="route-desc">ðŸš‡ Take Jubilee Line from London Bridge Station to Baker Street, transfer to Bakerloo Line to Paddington</div>
             <div class="fare-row">
-                <span>Transit Cost (Capped at £26.70 Max for Zones 1-2):</span>
-                <span class="fare-val capped">£4.65 <span style="color: var(--success); font-weight: bold;">(TfL daily limit reached)</span></span>
+                <span>Transit Cost (Capped at Â£26.70 Max for Zones 1-2):</span>
+                <span class="fare-val capped">Â£1.50 <span style="color: var(--success); font-weight: bold;">(TfL daily limit reached)</span></span>
             </div>
         </div>
 
@@ -660,24 +713,24 @@
             <div class="time-header">
                 <div class="checkbox-container">
                     <input type="checkbox" class="custom-checkbox" onchange="toggleCardState(this)">
-                    <span class="time-badge">09:45 - 11:15</span>
+                    <span class="time-badge">10:00 - 11:30</span>
                 </div>
                 <span class="type-badge free">Free Entry</span>
             </div>
             <div class="title-wrapper">
-                <h2>St. Paul's Cathedral</h2>
-                <button class="copy-btn" onclick="copyPostcode('EC4M 8AD', this)">📋 EC4M 8AD</button>
+                <h2>The British Museum</h2>
+                <button class="copy-btn" onclick="copyPostcode('WC1B 3DG', this)">ðŸ“‹ WC1B 3DG</button>
             </div>
-            <div class="route-desc">From Hotel: Take Central Line direct from Lancaster Gate Station to St. Paul's Station</div>
-            <p class="desc">Check out of your room in the morning. Since you have very light luggage, you will effortlessly carry it along for today's final legs. View the awe-inspiring exterior architecture of Christopher Wren's dome from the public square without paying entry fees.</p>
+            <div class="route-desc">ðŸš‡ Take Elizabeth Line from Paddington direct to Tottenham Court Road Station</div>
+            <p class="desc">Check out of hotel, carrying your light bags (backpacks allowed inside). Enter through the Great Court architecture to view foundational historic anchors like the Rosetta Stone.</p>
             <div class="fare-row">
                 <span>Transit Cost (3x Single Tube Fares):</span>
-                <span class="fare-val">£8.40</span>
+                <span class="fare-val">Â£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: Â£8.40)</span></span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=St.+Paul's+Cathedral+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=86+Sussex+Gardens+London+W2+1UH&destination=St.+Paul's+Cathedral+London&travelmode=transit" target="_blank" class="map-btn prev">⬅️ From Hotel</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=St.+Paul's+Cathedral+London&destination=22+Bishopsgate+London&travelmode=transit" target="_blank" class="map-btn next">➡️ To Horizon 22</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=British+Museum+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=86+Sussex+Gardens+London+W2+1UH&destination=British+Museum+London&travelmode=transit" target="_blank" class="map-btn prev">â¬…ï¸ From Hotel</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=British+Museum+London&destination=22+Bishopsgate+London&travelmode=transit" target="_blank" class="map-btn next">âž¡ï¸ To Horizon 22</a>
             </div>
         </div>
 
@@ -691,18 +744,18 @@
             </div>
             <div class="title-wrapper">
                 <h2>Horizon 22 Observation Deck</h2>
-                <button class="copy-btn" onclick="copyPostcode('EC2N 4AJ', this)">📋 EC2N 4AJ</button>
+                <button class="copy-btn" onclick="copyPostcode('EC2N 4AJ', this)">ðŸ“‹ EC2N 4AJ</button>
             </div>
-            <div class="route-desc">From Cathedral: Walk 12 mins flat down Cheapside or take Central Line 1 stop to Bank Station</div>
-            <p class="desc">Clear airport-style security at 22 Bishopsgate. Your entry window is strictly locked at 12:00 PM - 12:15 PM. Experience Europe's highest viewing gallery with a striking view over the city rooftops.</p>
+            <div class="route-desc">ðŸš‡ Take Central Line from Tottenham Court Road Station direct to Bank Station</div>
+            <p class="desc">Proceed to 22 Bishopsgate. Clear airport-style security for your strict 12:00 PM - 12:15 PM entry window to Europe's highest free public viewing gallery.</p>
             <div class="fare-row">
                 <span>Transit Cost (3x Single Tube Fares):</span>
-                <span class="fare-val">£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: £16.80)</span></span>
+                <span class="fare-val">Â£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: Â£16.80)</span></span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=22+Bishopsgate+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=St.+Paul's+Cathedral+London&destination=22+Bishopsgate+London&travelmode=transit" target="_blank" class="map-btn prev">⬅️ From Cathedral</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=22+Bishopsgate+London&destination=Leadenhall+Market+London&travelmode=walking" target="_blank" class="map-btn next">➡️ To Leadenhall</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=22+Bishopsgate+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=British+Museum+London&destination=22+Bishopsgate+London&travelmode=transit" target="_blank" class="map-btn prev">â¬…ï¸ From Museum</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=22+Bishopsgate+London&destination=Leadenhall+Market+London&travelmode=walking" target="_blank" class="map-btn next">âž¡ï¸ To Leadenhall</a>
             </div>
         </div>
 
@@ -716,72 +769,47 @@
             </div>
             <div class="title-wrapper">
                 <h2>Leadenhall Market & Garden 120</h2>
-                <button class="copy-btn" onclick="copyPostcode('EC3V 1LT', this)">📋 EC3V 1LT</button>
+                <button class="copy-btn" onclick="copyPostcode('EC3V 1LT', this)">ðŸ“‹ EC3V 1LT</button>
             </div>
-            <div class="route-desc">Walk: 3 mins immediate flat connectivity from Horizon 22</div>
+            <div class="route-desc">ðŸš¶ Walk: 3 mins immediate flat connectivity from Horizon 22</div>
             <p class="desc">Navigate the Victorian covered alleys of Leadenhall Market, then take the lift to the open rooftop terrace at Garden 120 for an exceptional garden overlook.</p>
             
             <div class="food-box">
                 <div class="food-title">Local Dining Recommendation</div>
-                <div class="food-desc"><strong>Pilpel (Leadenhall):</strong> Frequented by local professionals. Incredibly delicious, massive Middle Eastern falafel and houmous boxes. Fast, fresh, and highly economical.<br><strong>Est. Cost:</strong> ~£24 - £30 total for 3 adults.</div>
+                <div class="food-desc"><strong>Pilpel (Leadenhall):</strong> Frequented by local professionals. Incredibly delicious, massive Middle Eastern falafel and houmous boxes. Fast, fresh, and highly economical.<br><strong>Est. Cost:</strong> ~Â£24 - Â£30 total for 3 adults.</div>
             </div>
 
             <div class="fare-row">
                 <span>Transit Cost:</span>
-                <span class="fare-val capped">£0.00 (Walk)</span>
+                <span class="fare-val capped">Â£0.00 (Walk)</span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=Leadenhall+Market+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=22+Bishopsgate+London&destination=Leadenhall+Market+London&travelmode=walking" target="_blank" class="map-btn prev">⬅️ From Horizon 22</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Leadenhall+Market+London&destination=British+Museum+London&travelmode=transit" target="_blank" class="map-btn next">➡️ To British Museum</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Leadenhall+Market+London" target="_blank" class="map-btn dir">ðŸ“ Location</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=22+Bishopsgate+London&destination=Leadenhall+Market+London&travelmode=walking" target="_blank" class="map-btn prev">â¬…ï¸ From Horizon 22</a>
+                <a href="https://www.google.com/maps/dir/?api=1&origin=Leadenhall+Market+London&destination=Heathrow+Airport+London&travelmode=transit" target="_blank" class="map-btn next">âž¡ï¸ To Heathrow</a>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" style="border-left: 4px solid var(--primary);">
             <div class="time-header">
                 <div class="checkbox-container">
                     <input type="checkbox" class="custom-checkbox" onchange="toggleCardState(this)">
-                    <span class="time-badge">15:15 - 17:15</span>
-                </div>
-                <span class="type-badge free">Free Entry</span>
-            </div>
-            <div class="title-wrapper">
-                <h2>The British Museum</h2>
-                <button class="copy-btn" onclick="copyPostcode('WC1B 3DG', this)">📋 WC1B 3DG</button>
-            </div>
-            <div class="route-desc">From Leadenhall: Take Central Line from Bank Station direct to Tottenham Court Road Station</div>
-            <p class="desc">Your final grand destination. Enter through the Great Court architecture to view foundational historic anchors like the Rosetta Stone before museum operations conclude at 17:00.</p>
-            <div class="fare-row">
-                <span>Transit Cost (3x Single Tube Fares):</span>
-                <span class="fare-val">£8.40 <span style="color: var(--text-muted); font-weight: normal;">(Rolling: £25.20)</span></span>
-            </div>
-            <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=British+Museum+London" target="_blank" class="map-btn dir">📍 Location</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=Leadenhall+Market+London&destination=British+Museum+London&travelmode=transit" target="_blank" class="map-btn prev">⬅️ From Leadenhall</a>
-                <a href="https://www.google.com/maps/dir/?api=1&origin=British+Museum+London&destination=Heathrow+Airport+London&travelmode=transit" target="_blank" class="map-btn next">➡️ To Heathrow</a>
-            </div>
-        </div>
-
-        <div class="card" style="border: 2px solid var(--primary);">
-            <div class="time-header">
-                <div class="checkbox-container">
-                    <input type="checkbox" class="custom-checkbox" onchange="toggleCardState(this)">
-                    <span class="time-badge" style="background: var(--primary);">17:30 - 18:30</span>
+                    <span class="time-badge" style="background: var(--primary);">15:30 - 16:30</span>
                 </div>
                 <span class="type-badge free">Cap Triggered</span>
             </div>
             <div class="title-wrapper">
                 <h2>Elizabeth Line Heathrow Extraction</h2>
-                <button class="copy-btn" onclick="copyPostcode('TW6 1QG', this)">📋 TW6 1QG</button>
+                <button class="copy-btn" onclick="copyPostcode('TW6 1QG', this)">ðŸ“‹ TW6 1QG</button>
             </div>
-            <div class="route-desc">From Museum: Walk to Tottenham Court Road Station, board the direct high-speed Elizabeth Line train to Heathrow Airport</div>
-            <p class="desc">Carry your light items directly onto the air-conditioned train. Smooth, step-free access straight into the terminal gates for a stress-free transition.</p>
+            <div class="route-desc">ðŸš† Walk 5 mins to Liverpool Street Station, board the direct high-speed Elizabeth Line train to Heathrow Airport</div>
+            <p class="desc">Carry your light items directly onto the air-conditioned train. Smooth, step-free access straight into the terminal gates for a stress-free transition, giving you immense buffer time for your flight.</p>
             <div class="fare-row">
-                <span>Transit Cost (Capped at Zone 1-6 Cap of £48.90 Max for 3 Pax):</span>
-                <span class="fare-val capped">£23.70 <span style="color: var(--success); font-weight: bold;">(Saved £16.20 via automatic cap)</span></span>
+                <span>Transit Cost (Capped at Zone 1-6 Cap of Â£48.90 Max for 3 Pax):</span>
+                <span class="fare-val capped">Â£32.10 <span style="color: var(--success); font-weight: bold;">(Saved Â£7.80 via automatic cap)</span></span>
             </div>
             <div class="map-grid">
-                <a href="https://www.google.com/maps/search/?api=1&query=Heathrow+Airport+London" target="_blank" class="map-btn dir" style="grid-column: span 3;">📍 Location Map</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Heathrow+Airport+London" target="_blank" class="map-btn dir" style="grid-column: span 3;">ðŸ“ Location Map</a>
             </div>
         </div>
 
@@ -793,19 +821,19 @@
         <div class="stat-grid">
             <div class="stat-card">
                 <span>Total Public Transport</span>
-                <div>£102.30</div>
+                <div>Â£102.30</div>
             </div>
             <div class="stat-card">
                 <span>Total Entry Fees</span>
-                <div>£0.00</div>
+                <div>Â£0.00</div>
             </div>
             <div class="stat-card total">
                 <span>Est. Ground Consumables (Food & Dining Suggestions)</span>
-                <div>~£180.00</div>
+                <div>~Â£180.00</div>
             </div>
         </div>
         <div class="cap-alert">
-            🛡️ Dynamic Cap Engine Active: Maximum transport spend locked to standard TfL caps.
+            ðŸ›¡ï¸ Dynamic Cap Engine Active: Maximum transport spend locked to standard TfL caps.
         </div>
     </div>
 
@@ -820,7 +848,7 @@
         btnElement.classList.add('active');
     }
 
-    // Interactive Checklist (Option B)
+    // Interactive Checklist
     function toggleCardState(checkbox) {
         const card = checkbox.closest('.card');
         if(checkbox.checked) {
@@ -830,11 +858,11 @@
         }
     }
 
-    // 1-Click Postcode Copy (Option E)
+    // 1-Click Postcode Copy
     function copyPostcode(text, btn) {
         navigator.clipboard.writeText(text).then(() => {
             const originalText = btn.innerHTML;
-            btn.innerHTML = '✅ Copied';
+            btn.innerHTML = 'âœ… Copied';
             btn.style.background = '#d1fae5';
             btn.style.color = '#047857';
             btn.style.borderColor = '#34d399';
