@@ -1,17 +1,20 @@
 {
   "_SCHEMA_VERSION": "2.0",
-  "_LAST_UPDATED": "2026-05-27T10:42:00+02:00",
-  "_PURPOSE": "Centralized AI brain for the LondonGithub project. Single source of truth for all accumulated knowledge, architecture, operational files, historical issues, and execution guidelines.",
+  "_LAST_UPDATED": "2026-05-27T16:32:00+02:00",
+  "_PURPOSE": "Centralized AI brain for the LondonGithub project. Single source of truth for all accumulated knowledge, architecture, operational files, historical issues, decision rationale, and execution guidelines. Any future agent MUST read this file first before performing any work.",
 
   "PROJECT_IDENTITY": {
-    "project_name": "London Strategic Framework — GitHub Pages Deployment",
+    "project_name": "London Travel — GitHub Pages Deployment",
     "description": "A mobile-optimized HTML itinerary web application for a 3-day London trip (Sat May 30 – Mon Jun 1). Deployed as a static site on GitHub Pages for instant WhatsApp sharing.",
     "repository_name": "london-itinerary",
     "github_username": "snowblack555",
     "github_pages_url": "https://snowblack555.github.io/london-itinerary/",
     "repository_url": "https://github.com/snowblack555/london-itinerary",
     "visibility": "Public",
-    "created_date": "2026-05-27"
+    "created_date": "2026-05-27",
+    "deployment_status": "LIVE",
+    "deployment_verified": true,
+    "page_title": "London Travel"
   },
 
   "ARCHITECTURE": {
@@ -41,7 +44,7 @@
     "index.html": {
       "path": "D:\\Docus\\Projct\\LondonGithub\\index.html",
       "purpose": "The entire application — HTML structure, CSS styles, and JS logic in a single file",
-      "size_bytes": 41556,
+      "size_bytes": 41536,
       "total_lines": 855
     },
     "MACHINE-MEMORY.json": {
@@ -51,56 +54,277 @@
   },
 
   "GIT_CONFIGURATION": {
-    "local_git_user": "ustemp-lgtm",
-    "local_git_email": "ustemp20@gmail.com",
+    "github_account_used_for_repo": "snowblack555 (Anjali Jose)",
+    "local_git_cli_account": "ustemp-lgtm (ustemp20@gmail.com)",
+    "credential_helper": "gh.exe (GitHub CLI) at D:\\Docus\\Projct\\Arti\\bin\\gh.exe",
+    "credential_helper_config_chain": [
+      "credential.helper=manager",
+      "credential.https://github.com.helper=!'D:\\Docus\\Projct\\Arti\\bin\\gh.exe' auth git-credential",
+      "credential.https://gist.github.com.helper=!'D:\\Docus\\Projct\\Arti\\bin\\gh.exe' auth git-credential"
+    ],
     "remote_origin": "https://github.com/snowblack555/london-itinerary.git",
-    "default_branch": "main"
+    "default_branch": "main",
+    "CRITICAL_KNOWLEDGE": "Two different GitHub accounts exist on this machine. The gh CLI (and therefore all git push/pull via HTTPS) authenticates as 'ustemp-lgtm'. The browser session authenticates as 'snowblack555'. The london-itinerary repo is owned by snowblack555. Therefore: (1) git push from CLI will ALWAYS fail with 403 unless ustemp-lgtm is added as collaborator, (2) all edits MUST go through GitHub web UI or the collaborator must be added first, (3) do NOT waste time trying to push via CLI without resolving this first."
   },
 
   "DEPLOYMENT_PROCEDURE": {
     "step_1_prepare": "Ensure index.html is saved at root of project folder",
-    "step_2_create_repo": "Create PUBLIC repo 'london-itinerary' on GitHub (no README, no .gitignore, no license)",
-    "step_3_git_init": "git init -b main in project folder",
-    "step_4_stage_commit": "git add index.html && git commit -m 'Initial deploy of mobile london framework'",
-    "step_5_remote": "git remote add origin https://github.com/snowblack555/london-itinerary.git",
-    "step_6_push": "git push -u origin main",
-    "step_7_activate_pages": "Settings > Pages > Deploy from branch > main > / (root) > Save",
-    "step_8_verify": "Wait 30-60s, refresh Settings > Pages, confirm live URL"
+    "step_2_create_repo": "Created PUBLIC repo 'london-itinerary' on GitHub via browser (no README, no .gitignore, no license)",
+    "step_3_upload_files": "Uploaded index.html and MACHINE-MEMORY.json via GitHub web UI (browser upload) — commit message: 'Initial deploy of mobile london framework'",
+    "step_4_activate_pages": "Settings > Pages > Deploy from branch > main > / (root) > Save",
+    "step_5_verify": "Site confirmed live at https://snowblack555.github.io/london-itinerary/",
+    "NOTE_git_push_bypass": "Standard git push was bypassed due to credential mismatch (local CLI = ustemp-lgtm, repo owner = snowblack555). Used browser upload as the clean workaround."
   },
 
   "EXECUTION_LOG": [
     {
       "timestamp": "2026-05-27T10:42:00+02:00",
       "action": "INITIAL_ASSESSMENT",
-      "details": "Scanned project folder. Found single file: index.html (41556 bytes, 855 lines). No existing .git repository detected. No MACHINE-MEMORY.json existed. GitHub user confirmed as 'snowblack555' (Anjali Jose) via browser session.",
-      "thinking": "Need to create a fresh public GitHub repo named 'london-itinerary', initialize git locally, push the code, then activate GitHub Pages via the browser UI. Must NOT modify any other existing repos on this GitHub account.",
+      "details": "Scanned project folder D:\\Docus\\Projct\\LondonGithub. Found single file: index.html (41556 bytes, 855 lines). No existing .git repository. No MACHINE-MEMORY.json. Browser showed GitHub logged in as 'snowblack555' (Anjali Jose). Local git config showed user 'ustemp-lgtm' with email 'ustemp20@gmail.com'.",
+      "thinking": "First step: understand the full landscape before doing anything. Checked (1) what files exist, (2) whether git is already initialized, (3) who is logged into GitHub in the browser, (4) who the local git CLI authenticates as. This upfront reconnaissance is critical — it prevents surprises later. Noticed immediately that the browser account (snowblack555) and CLI account (ustemp-lgtm) are DIFFERENT — flagged this mentally but proceeded with the standard plan first since it might still work if credentials are flexible.",
+      "decision_rationale": "Gather all context before any action. Ran 4 parallel checks (list_dir, view_file, git config user.name, git config user.email) plus a browser check for the GitHub username — all independent, so no reason to serialize them.",
       "status": "COMPLETED"
     },
     {
       "timestamp": "2026-05-27T10:42:30+02:00",
       "action": "CREATE_MACHINE_MEMORY",
       "details": "Created MACHINE-MEMORY.json as the centralized AI brain for this project.",
-      "thinking": "Establishing the single source of truth before any destructive operations begin. This ensures continuity if the process is interrupted.",
+      "thinking": "The user explicitly requested this file be maintained with precision. Creating it BEFORE any risky operations (repo creation, git push) ensures that if something fails mid-process, a future agent can pick up exactly where we left off. The file captures our planned procedure so even an interruption doesn't lose context.",
+      "decision_rationale": "Safety-first approach — document the plan before executing it. If the session crashes during git push or browser automation, the next agent reads this file and knows exactly what was attempted and what remains.",
       "status": "COMPLETED"
     },
     {
       "timestamp": "2026-05-27T10:43:00+02:00",
-      "action": "PLANNED_NEXT_STEPS",
-      "details": "Will now: (1) Create public GitHub repo 'london-itinerary' via browser, (2) Initialize local git repo, (3) Stage and commit index.html + MACHINE-MEMORY.json, (4) Add remote origin, (5) Push to main, (6) Activate GitHub Pages via browser, (7) Verify live URL, (8) Update this log with results.",
-      "thinking": "Browser automation needed for repo creation and Pages activation since these are GitHub UI operations. Git CLI operations will be done via terminal. Must be careful to ONLY create a new repo, not touch any existing ones.",
-      "status": "IN_PROGRESS"
+      "action": "CREATE_GITHUB_REPO",
+      "details": "Created public repository 'london-itinerary' via GitHub web UI. Navigated to github.com/new, set name to 'london-itinerary', set to Public, no README/gitignore/license. Verified repo appeared at https://github.com/snowblack555/london-itinerary with empty setup instructions page.",
+      "thinking": "Used browser automation since snowblack555 is the account logged in there. Chose 'Public' because GitHub Pages on the free tier ONLY works with public repos. Deliberately left README/gitignore/license unchecked to keep the repo completely empty — this avoids merge conflicts when pushing from local. Repo name 'london-itinerary' is clean, lowercase, hyphenated per GitHub conventions.",
+      "decision_rationale": "Browser was the only option for repo creation since we need it under snowblack555's account. Could have used GitHub API with a token, but that would require obtaining snowblack555's token which we don't have — browser is the path of least resistance.",
+      "status": "COMPLETED",
+      "result": "Repo created at https://github.com/snowblack555/london-itinerary"
+    },
+    {
+      "timestamp": "2026-05-27T10:45:30+02:00",
+      "action": "GIT_INIT_AND_COMMIT_LOCAL",
+      "details": "Initialized local git repo with 'git init -b main'. Staged index.html and MACHINE-MEMORY.json. Committed with message 'Initial deploy of mobile london framework'. Commit hash: f8a49aa.",
+      "thinking": "Standard git workflow — init, add, commit, then push. Used '-b main' flag to set the default branch to 'main' (not 'master') since GitHub now defaults to 'main' and our Pages config will target 'main'. Got a harmless LF/CRLF warning which is normal on Windows.",
+      "decision_rationale": "Tried the standard CLI approach first since it's the fastest path. If it works, we save time. If it fails, we learn something and pivot.",
+      "status": "COMPLETED"
+    },
+    {
+      "timestamp": "2026-05-27T10:45:58+02:00",
+      "action": "GIT_PUSH_FAILED",
+      "details": "git push -u origin main FAILED with exit code 1. Error: 'remote: Permission to snowblack555/london-itinerary.git denied to ustemp-lgtm. fatal: unable to access https://github.com/snowblack555/london-itinerary.git/: The requested URL returned error: 403'",
+      "thinking": "STOP. Do NOT retry the same command. The error is crystal clear: 'Permission denied to ustemp-lgtm'. This means the git credential helper is sending ustemp-lgtm's token, but the repo belongs to snowblack555. These are TWO DIFFERENT GitHub accounts on this machine. I need to step back and evaluate all options before proceeding.",
+      "decision_tree": {
+        "option_1_gh_auth_switch": {
+          "description": "Run 'gh auth login' to authenticate as snowblack555",
+          "pros": "Would enable CLI push directly",
+          "cons": "Would BREAK the existing ustemp-lgtm authentication. Other projects relying on ustemp-lgtm credentials would stop working. User explicitly said 'don't make changes to other projects'. HIGH RISK.",
+          "verdict": "REJECTED — too risky, could break other workflows"
+        },
+        "option_2_add_collaborator": {
+          "description": "Add 'ustemp-lgtm' as a collaborator on the london-itinerary repo via browser",
+          "pros": "Clean solution, CLI push would work, no credential changes needed",
+          "cons": "Requires extra browser automation steps, adds a collaborator to a personal repo which the user may not want",
+          "verdict": "VIABLE but unnecessary complexity for a one-time upload"
+        },
+        "option_3_browser_upload": {
+          "description": "Upload files via GitHub web UI (drag-and-drop on the repo page)",
+          "pros": "Zero credential changes, zero risk to other projects, works immediately since snowblack555 is already logged in via browser, simplest path",
+          "cons": "Not scalable for large repos, but perfect for 2 files",
+          "verdict": "SELECTED — cleanest, safest, fastest for this scenario"
+        },
+        "option_4_personal_access_token": {
+          "description": "Generate a PAT for snowblack555 and use it in the remote URL",
+          "pros": "Would enable CLI push without changing global credentials",
+          "cons": "Requires navigating GitHub settings to generate a token, storing sensitive credential in the remote URL, security concern",
+          "verdict": "REJECTED — unnecessary complexity and security concern"
+        }
+      },
+      "key_insight": "When you see a 403 on git push, ALWAYS check which account the credential helper is using (run 'gh auth status' or check credential config). On machines with multiple GitHub accounts, the stored credential may not match the repo owner. The fix depends on context — for a one-time upload, browser UI is ideal; for ongoing development, add the CLI user as a collaborator.",
+      "status": "RESOLVED",
+      "resolution": "Selected Option 3: GitHub web UI file upload. Zero risk to existing credentials and other projects."
+    },
+    {
+      "timestamp": "2026-05-27T10:46:10+02:00",
+      "action": "CREDENTIAL_INVESTIGATION",
+      "details": "Ran 'git config --list | Select-String credential' and 'gh auth status' to fully understand the credential chain. Discovered: (1) credential.helper=manager (Windows Credential Manager), (2) GitHub-specific override uses gh.exe at D:\\Docus\\Projct\\Arti\\bin\\gh.exe, (3) gh auth status confirmed: 'Logged in to github.com account ustemp-lgtm (keyring)', active account, token scopes: gist, read:org, repo, workflow.",
+      "thinking": "Before choosing a workaround, I needed to fully understand WHY the push failed. It wasn't a network issue or a typo — it was a fundamental credential mismatch. Understanding the full credential chain (manager → gh.exe → keyring → ustemp-lgtm token) confirmed this is not something a simple retry would fix. This investigation took 10 seconds but saved potentially many minutes of futile retries.",
+      "decision_rationale": "Diagnosis before treatment. The credential chain revealed that ALL git HTTPS operations to github.com are routed through gh.exe, which is hardcoded to ustemp-lgtm's token. No amount of 'git config' tweaking in the local repo would bypass this.",
+      "status": "COMPLETED"
+    },
+    {
+      "timestamp": "2026-05-27T10:47:00+02:00",
+      "action": "UPLOAD_VIA_BROWSER",
+      "details": "Navigated to the empty repo page, clicked 'uploading an existing file' link, used the file chooser to select both index.html and MACHINE-MEMORY.json from D:\\Docus\\Projct\\LondonGithub. Set commit message to 'Initial deploy of mobile london framework'. Committed directly to main branch. Commit hash: edbf98d.",
+      "thinking": "Browser upload is the right call here. The empty repo page conveniently offers an 'uploading an existing file' link which opens the drag-and-drop upload interface. This creates a commit directly on the main branch under snowblack555's account.",
+      "status": "COMPLETED"
+    },
+    {
+      "timestamp": "2026-05-27T10:49:00+02:00",
+      "action": "ACTIVATE_GITHUB_PAGES",
+      "details": "Navigated to Settings > Pages. Set Source to 'Deploy from a branch', Branch to 'main', folder to '/ (root)', clicked Save. Initial screenshot showed 'GitHub Pages is currently disabled' text — this was because Save hadn't been clicked yet (just selecting the dropdown doesn't auto-save). Clicked Save, then waited and refreshed.",
+      "thinking": "Important subtlety: selecting 'main' in the branch dropdown does NOT auto-save. You MUST click the Save button. The 'currently disabled' text was a clue that Save was pending. After clicking Save, GitHub kicks off a Pages build workflow which takes 30-60 seconds.",
+      "status": "COMPLETED"
+    },
+    {
+      "timestamp": "2026-05-27T10:51:00+02:00",
+      "action": "DEPLOYMENT_VERIFIED",
+      "details": "Refreshed Settings > Pages. Banner confirmed: 'Your site is live at https://snowblack555.github.io/london-itinerary/'. Navigated to the live URL and verified the itinerary renders correctly — sticky tabs, cards, map buttons, dashboard all functional.",
+      "thinking": "Always verify the live site, not just the GitHub Settings page. The Settings page can say 'live' but the actual content might have rendering issues. Opened the URL and confirmed visual correctness.",
+      "status": "COMPLETED",
+      "result": "LIVE at https://snowblack555.github.io/london-itinerary/"
+    },
+    {
+      "timestamp": "2026-05-27T10:52:00+02:00",
+      "action": "CLEANUP_AND_FINALIZE",
+      "details": "Removed stale local .git folder (created during the failed push attempt via 'Remove-Item -Recurse -Force .git'). This was necessary because the local .git had commit f8a49aa but the remote had commit edbf98d — they were completely different commit histories since one was made locally and the other via browser upload.",
+      "thinking": "Leaving a stale .git folder would cause confusion for future agents. They might see it and think 'oh, git is already initialized, let me just push' — but the histories wouldn't match. Cleaner to remove it entirely. If CLI push is needed in the future, the proper approach is to 'git clone' the remote repo fresh.",
+      "decision_rationale": "Divergent git histories cause merge conflicts and confusion. Since the authoritative source is now GitHub (remote), the local .git is useless and misleading. Remove it.",
+      "status": "COMPLETED"
+    },
+    {
+      "timestamp": "2026-05-27T10:58:00+02:00",
+      "action": "TITLE_CHANGE",
+      "details": "Changed <title> tag in index.html from 'London Strategic Framework' to 'London Travel' per user request. Edit done via GitHub web editor (github.com/.../edit/main/index.html), committed with message 'Update page title to London Travel'. Local file also updated to stay in sync.",
+      "thinking": "User shared a WhatsApp screenshot showing the link preview title as 'London Strategic Framework' — they wanted it simplified to 'London Travel'. The <title> tag controls both the browser tab text AND the social media/WhatsApp link preview. Single-line change on line 6 of index.html. Used GitHub web editor (not CLI push) because of the credential mismatch documented in ISSUE-001. Also synced the local file so future edits start from the correct state.",
+      "decision_rationale": "GitHub web editor is the established workflow for this repo (due to credential mismatch). Quick edit, clean commit, auto-redeploys via Pages within ~60 seconds.",
+      "status": "COMPLETED"
+    },
+    {
+      "timestamp": "2026-05-27T16:24:00+02:00",
+      "action": "SYNC_LOCAL_TO_REMOTE",
+      "details": "Discovered that the local index.html had been updated with significant itinerary changes (Monday restructured from St. Paul's → Horizon 22 to British Museum → Horizon 22, Saturday routes updated from Victoria Bus 36 to Paddington walk, rolling fare totals corrected) but the remote GitHub repo still had the OLD version. The local edits were never pushed due to ISSUE-001 (credential mismatch). First attempted to sync via GitHub web editor clipboard paste (Ctrl+A → Ctrl+V), which successfully updated the content BUT corrupted all UTF-8 characters (emojis showed as garbled mojibake like 'ðŸš‡', £ signs showed as 'Â£'). Then re-uploaded via GitHub's file upload feature (Add File → Upload Files) which preserved correct binary encoding.",
+      "thinking": "The root cause was simple: local file was edited but never synced to remote. The credential mismatch (ISSUE-001) meant CLI push wasn't an option. The clipboard paste approach seemed reasonable but introduced a new problem — the browser clipboard doesn't preserve raw UTF-8 byte sequences correctly when pasting into Monaco editor. The file upload approach sends the raw binary file directly, preserving encoding perfectly.",
+      "decision_rationale": "File upload via GitHub UI is the ONLY safe method for syncing files with non-ASCII characters (emojis, £ signs) when CLI push is unavailable. NEVER use clipboard paste in the web editor for files with special characters.",
+      "status": "COMPLETED"
     }
   ],
 
-  "HISTORICAL_ISSUES": [],
+  "HISTORICAL_ISSUES": [
+    {
+      "issue_id": "ISSUE-001",
+      "title": "Git push 403 — credential mismatch between local CLI and repo owner",
+      "problem": "git push -u origin main failed with 'Permission to snowblack555/london-itinerary.git denied to ustemp-lgtm'",
+      "root_cause": "Two different GitHub accounts on the same machine. The gh CLI (D:\\Docus\\Projct\\Arti\\bin\\gh.exe) authenticates as 'ustemp-lgtm' via keyring token. The repo owner is 'snowblack555'. Git HTTPS requests to github.com are intercepted by gh.exe which injects ustemp-lgtm's token, causing a 403 on repos not accessible to ustemp-lgtm.",
+      "investigation_steps": [
+        "Ran 'git config --list | Select-String credential' — discovered gh.exe is configured as the credential helper for github.com",
+        "Ran 'gh auth status' — confirmed active account is ustemp-lgtm with keyring-stored token",
+        "Mapped the full credential chain: git push → credential.helper → gh.exe → keyring → ustemp-lgtm token → GitHub API → 403"
+      ],
+      "failed_attempts": [],
+      "alternatives_evaluated": {
+        "gh_auth_switch": "REJECTED — would break other projects using ustemp-lgtm",
+        "add_collaborator": "VIABLE but overkill for initial upload",
+        "browser_upload": "SELECTED — zero risk, immediate, clean",
+        "personal_access_token": "REJECTED — security concern, unnecessary complexity"
+      },
+      "working_solution": "Used GitHub web UI file upload (browser-based drag-and-drop) to commit files directly. The browser session was authenticated as snowblack555.",
+      "key_insight": "When you see a 403 on git push, the FIRST thing to check is 'which account does the credential helper authenticate as?' — run 'gh auth status'. On multi-account machines, the stored credential often belongs to a different account than the repo owner. Do NOT blindly retry. Diagnose the credential chain first.",
+      "permanent_fix_options": [
+        "Add 'ustemp-lgtm' as a collaborator on the london-itinerary repo (Settings > Collaborators > Add people)",
+        "Use gh auth login to switch to snowblack555 (but this breaks ustemp-lgtm projects)",
+        "Use git credential per-repo override with a snowblack555 PAT",
+        "Continue using GitHub web UI for all edits (simplest, works fine for this project)"
+      ],
+      "date_resolved": "2026-05-27"
+    }
+  ],
+
+  "LESSONS_LEARNED": [
+    {
+      "lesson_id": "LESSON-001",
+      "title": "Always check credential identity before git push on multi-account machines",
+      "context": "This machine has gh.exe authenticated as ustemp-lgtm, but the repo is owned by snowblack555. A blind git push wasted one attempt.",
+      "rule": "BEFORE any git push, run 'gh auth status' to confirm which account will be used. If it doesn't match the repo owner, do NOT attempt the push — go straight to an alternative.",
+      "time_saved_next_time": "~2 minutes (skip the failed push, credential investigation, and pivot)"
+    },
+    {
+      "lesson_id": "LESSON-002",
+      "title": "GitHub web UI is a perfectly valid deployment path for small projects",
+      "context": "When CLI push fails due to credential issues, the GitHub web UI (file upload + web editor) provides a complete workflow: upload files, edit code, commit, and GitHub Pages auto-deploys.",
+      "rule": "For this repo, the default edit workflow is: GitHub web editor (github.com/.../edit/main/filename). After commit, GitHub Pages auto-redeploys in ~60 seconds.",
+      "time_saved_next_time": "Immediate — skip CLI attempts entirely"
+    },
+    {
+      "lesson_id": "LESSON-003",
+      "title": "Create MACHINE-MEMORY.json BEFORE starting risky operations",
+      "context": "The memory file was created before repo creation and git push. When the push failed, the memory file already documented what had been done and what remained.",
+      "rule": "Always create/update the memory file at the START of a session, not the end. This ensures crash recovery.",
+      "time_saved_next_time": "Recovery from interruptions is instant — new agent reads the file and knows exactly where to resume"
+    },
+    {
+      "lesson_id": "LESSON-004",
+      "title": "GitHub Pages requires explicit Save click after branch selection",
+      "context": "Selecting 'main' in the branch dropdown does not auto-save. The page still shows 'GitHub Pages is currently disabled' until Save is clicked.",
+      "rule": "After setting the branch and folder in Pages settings, ALWAYS click Save. Then wait 30-60 seconds and refresh to verify the 'Your site is live' banner appears.",
+      "time_saved_next_time": "~30 seconds (no confusion about why Pages isn't activating)"
+    },
+    {
+      "lesson_id": "LESSON-005",
+      "title": "The <title> tag controls WhatsApp link previews",
+      "context": "User shared the WhatsApp link and the preview showed 'London Strategic Framework'. Changing the <title> tag to 'London Travel' fixed the preview.",
+      "rule": "WhatsApp, Telegram, and other social apps use the <title> tag (and og:title meta tag if present) for link previews. Always set a user-friendly title before sharing links.",
+      "time_saved_next_time": "Set the correct title before first deploy, not after"
+    },
+    {
+      "lesson_id": "LESSON-006",
+      "title": "Remove stale .git folders when local and remote histories diverge",
+      "context": "Local git had commit f8a49aa (from CLI), remote had commit edbf98d (from browser upload). These were completely different histories. Leaving the .git folder would confuse future operations.",
+      "rule": "If you upload files via browser instead of git push, the local .git becomes stale. Remove it immediately. For future CLI work, do a fresh 'git clone' from the remote.",
+      "time_saved_next_time": "Prevents merge conflict headaches and 'rejected non-fast-forward' errors"
+    },
+    {
+      "lesson_id": "LESSON-007",
+      "title": "When a problem occurs, diagnose before acting — don't retry blindly",
+      "context": "After the 403 push failure, instead of retrying or guessing, we investigated the credential chain (git config, gh auth status) which revealed the exact root cause in under 10 seconds.",
+      "rule": "On any failure: (1) Read the error message carefully, (2) Investigate the underlying system state, (3) Evaluate all alternatives with pros/cons, (4) Select the best option, (5) Execute. Never retry the same failing command hoping for a different result.",
+      "time_saved_next_time": "Prevents wasted retry cycles and frustration loops"
+    },
+    {
+      "lesson_id": "LESSON-008",
+      "title": "GitHub Pages CDN cache can delay content updates by up to 10 minutes",
+      "context": "User uploaded a new index.html. GitHub Actions showed green checkmark (build + deploy succeeded on commit da1537e). But the live URL still served the old content for several minutes, even in incognito. This is GitHub's CDN edge cache propagation delay — not a deployment failure.",
+      "rule": "After a GitHub Pages deployment shows green in Actions, the live site may still serve stale content for up to 5-10 minutes due to CDN caching. Do NOT panic or re-deploy. Just wait. Use Ctrl+Shift+R (hard refresh) or try incognito after 5 minutes. If still stale after 10 minutes, check Actions tab to confirm the correct commit was deployed.",
+      "time_saved_next_time": "Prevents unnecessary debugging and re-deployments when the system is working correctly but CDN hasn't propagated yet"
+    },
+    {
+      "lesson_id": "LESSON-009",
+      "title": "NEVER use clipboard paste in GitHub web editor for files with non-ASCII characters",
+      "context": "Attempted to sync local index.html to remote by pasting via Ctrl+A/Ctrl+V in the GitHub Monaco editor. All emojis (🚇📍⬅️➡️) and £ symbols were corrupted into mojibake. Had to re-upload via file upload to fix.",
+      "rule": "For files containing emojis, currency symbols, or any non-ASCII UTF-8 characters, ALWAYS use GitHub's 'Upload files' feature (Add file → Upload files). NEVER paste content via the web editor clipboard. The clipboard path mangles multi-byte UTF-8 sequences.",
+      "time_saved_next_time": "Prevents an entire extra commit cycle to fix encoding corruption"
+    },
+    {
+      "lesson_id": "LESSON-010",
+      "title": "Always verify local and remote are in sync before assuming the live site is correct",
+      "context": "User reported the live site was wrong. Investigation revealed the local file had been updated but never synced to GitHub remote. The live site was faithfully serving the OLD remote version.",
+      "rule": "When the live site shows unexpected content, first compare local vs remote. If local has changes not on remote, the issue is a sync gap, not a deployment problem. Check git status or compare file contents before debugging deployment.",
+      "time_saved_next_time": "Immediately identifies sync gaps instead of chasing phantom deployment issues"
+    }
+  ],
 
   "STRICT_EXECUTION_GUIDELINES": {
-    "rule_1": "NEVER modify, delete, or interact with any existing GitHub repositories. ONLY create and manage the 'london-itinerary' repo.",
+    "rule_1": "NEVER modify, delete, or interact with any existing GitHub repositories. ONLY manage the 'london-itinerary' repo.",
     "rule_2": "Always update MACHINE-MEMORY.json BEFORE and AFTER any significant operation.",
-    "rule_3": "Log all thinking, planned procedures, and outcomes in the EXECUTION_LOG array.",
+    "rule_3": "Log all thinking, planned procedures, decision rationale, and outcomes in the EXECUTION_LOG array.",
     "rule_4": "If the process is interrupted, any new agent MUST read this file first to gain full situational awareness.",
     "rule_5": "The repository MUST be Public for GitHub Pages free tier to work.",
     "rule_6": "The deploy branch MUST be 'main' with source path '/ (root)'.",
-    "rule_7": "After any push, verify the live GitHub Pages URL is responsive before marking deployment as complete."
+    "rule_7": "After any commit, verify the live GitHub Pages URL (https://snowblack555.github.io/london-itinerary/) is responsive before marking deployment as complete.",
+    "rule_8": "For ALL code updates: use GitHub web UI to edit/upload files. Do NOT attempt git push from CLI — it will fail with 403 (ISSUE-001). Alternatively, add 'ustemp-lgtm' as a collaborator first.",
+    "rule_9": "If a problem occurs, do NOT blindly retry. Pause, read the error, investigate root cause, evaluate alternatives, then proceed with a clear plan.",
+    "rule_10": "Always keep local files (D:\\Docus\\Projct\\LondonGithub) in sync with the GitHub remote after any web UI edit.",
+    "rule_11": "When logging decisions, include the 'why' — not just what was done, but WHY that approach was chosen over alternatives. This saves future agents from re-evaluating the same options."
+  },
+
+  "QUICK_REFERENCE": {
+    "live_url": "https://snowblack555.github.io/london-itinerary/",
+    "repo_url": "https://github.com/snowblack555/london-itinerary",
+    "edit_url": "https://github.com/snowblack555/london-itinerary/edit/main/index.html",
+    "pages_settings": "https://github.com/snowblack555/london-itinerary/settings/pages",
+    "local_project_folder": "D:\\Docus\\Projct\\LondonGithub",
+    "how_to_edit": "Open edit_url in browser (logged in as snowblack555) → make changes → commit to main → auto-deploys in ~60 seconds → sync local file",
+    "how_to_verify": "Open live_url in browser or incognito and confirm changes are visible"
   }
 }
