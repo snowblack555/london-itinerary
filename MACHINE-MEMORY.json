@@ -1,0 +1,106 @@
+{
+  "_SCHEMA_VERSION": "2.0",
+  "_LAST_UPDATED": "2026-05-27T10:42:00+02:00",
+  "_PURPOSE": "Centralized AI brain for the LondonGithub project. Single source of truth for all accumulated knowledge, architecture, operational files, historical issues, and execution guidelines.",
+
+  "PROJECT_IDENTITY": {
+    "project_name": "London Strategic Framework — GitHub Pages Deployment",
+    "description": "A mobile-optimized HTML itinerary web application for a 3-day London trip (Sat May 30 – Mon Jun 1). Deployed as a static site on GitHub Pages for instant WhatsApp sharing.",
+    "repository_name": "london-itinerary",
+    "github_username": "snowblack555",
+    "github_pages_url": "https://snowblack555.github.io/london-itinerary/",
+    "repository_url": "https://github.com/snowblack555/london-itinerary",
+    "visibility": "Public",
+    "created_date": "2026-05-27"
+  },
+
+  "ARCHITECTURE": {
+    "type": "Static single-file HTML site",
+    "hosting": "GitHub Pages (free tier, deploy from branch)",
+    "branch": "main",
+    "deploy_source": "/ (root)",
+    "tech_stack": {
+      "html": "Single index.html with embedded CSS and JS",
+      "css": "Vanilla CSS with CSS custom properties (variables)",
+      "javascript": "Vanilla JS (no frameworks)",
+      "external_dependencies": "None — fully self-contained"
+    },
+    "key_features": [
+      "Sticky day-tab navigation (Sat/Sun/Mon)",
+      "Interactive checklist with completion state (greyed-out cards)",
+      "1-click postcode copy to clipboard",
+      "3-button map grid per card (Location / Previous / Next)",
+      "Operational Cash Flow Ledger dashboard",
+      "TfL daily cap engine tracking",
+      "Local dining recommendations with cost estimates",
+      "Mobile-first responsive design"
+    ]
+  },
+
+  "OPERATIONAL_FILES": {
+    "index.html": {
+      "path": "D:\\Docus\\Projct\\LondonGithub\\index.html",
+      "purpose": "The entire application — HTML structure, CSS styles, and JS logic in a single file",
+      "size_bytes": 41556,
+      "total_lines": 855
+    },
+    "MACHINE-MEMORY.json": {
+      "path": "D:\\Docus\\Projct\\LondonGithub\\MACHINE-MEMORY.json",
+      "purpose": "Centralized AI brain — single source of truth for project context, history, and guidelines"
+    }
+  },
+
+  "GIT_CONFIGURATION": {
+    "local_git_user": "ustemp-lgtm",
+    "local_git_email": "ustemp20@gmail.com",
+    "remote_origin": "https://github.com/snowblack555/london-itinerary.git",
+    "default_branch": "main"
+  },
+
+  "DEPLOYMENT_PROCEDURE": {
+    "step_1_prepare": "Ensure index.html is saved at root of project folder",
+    "step_2_create_repo": "Create PUBLIC repo 'london-itinerary' on GitHub (no README, no .gitignore, no license)",
+    "step_3_git_init": "git init -b main in project folder",
+    "step_4_stage_commit": "git add index.html && git commit -m 'Initial deploy of mobile london framework'",
+    "step_5_remote": "git remote add origin https://github.com/snowblack555/london-itinerary.git",
+    "step_6_push": "git push -u origin main",
+    "step_7_activate_pages": "Settings > Pages > Deploy from branch > main > / (root) > Save",
+    "step_8_verify": "Wait 30-60s, refresh Settings > Pages, confirm live URL"
+  },
+
+  "EXECUTION_LOG": [
+    {
+      "timestamp": "2026-05-27T10:42:00+02:00",
+      "action": "INITIAL_ASSESSMENT",
+      "details": "Scanned project folder. Found single file: index.html (41556 bytes, 855 lines). No existing .git repository detected. No MACHINE-MEMORY.json existed. GitHub user confirmed as 'snowblack555' (Anjali Jose) via browser session.",
+      "thinking": "Need to create a fresh public GitHub repo named 'london-itinerary', initialize git locally, push the code, then activate GitHub Pages via the browser UI. Must NOT modify any other existing repos on this GitHub account.",
+      "status": "COMPLETED"
+    },
+    {
+      "timestamp": "2026-05-27T10:42:30+02:00",
+      "action": "CREATE_MACHINE_MEMORY",
+      "details": "Created MACHINE-MEMORY.json as the centralized AI brain for this project.",
+      "thinking": "Establishing the single source of truth before any destructive operations begin. This ensures continuity if the process is interrupted.",
+      "status": "COMPLETED"
+    },
+    {
+      "timestamp": "2026-05-27T10:43:00+02:00",
+      "action": "PLANNED_NEXT_STEPS",
+      "details": "Will now: (1) Create public GitHub repo 'london-itinerary' via browser, (2) Initialize local git repo, (3) Stage and commit index.html + MACHINE-MEMORY.json, (4) Add remote origin, (5) Push to main, (6) Activate GitHub Pages via browser, (7) Verify live URL, (8) Update this log with results.",
+      "thinking": "Browser automation needed for repo creation and Pages activation since these are GitHub UI operations. Git CLI operations will be done via terminal. Must be careful to ONLY create a new repo, not touch any existing ones.",
+      "status": "IN_PROGRESS"
+    }
+  ],
+
+  "HISTORICAL_ISSUES": [],
+
+  "STRICT_EXECUTION_GUIDELINES": {
+    "rule_1": "NEVER modify, delete, or interact with any existing GitHub repositories. ONLY create and manage the 'london-itinerary' repo.",
+    "rule_2": "Always update MACHINE-MEMORY.json BEFORE and AFTER any significant operation.",
+    "rule_3": "Log all thinking, planned procedures, and outcomes in the EXECUTION_LOG array.",
+    "rule_4": "If the process is interrupted, any new agent MUST read this file first to gain full situational awareness.",
+    "rule_5": "The repository MUST be Public for GitHub Pages free tier to work.",
+    "rule_6": "The deploy branch MUST be 'main' with source path '/ (root)'.",
+    "rule_7": "After any push, verify the live GitHub Pages URL is responsive before marking deployment as complete."
+  }
+}
